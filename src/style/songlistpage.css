@@ -1,0 +1,82 @@
+.allover {
+    display: flex;
+    margin-top: 30px;
+}
+
+
+.left {
+    width: 150px;
+    padding-right: 15px;
+    border-right: 1px solid #ddd;
+    margin-right: 20px;
+}
+
+.left ul li {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+
+.left ul li.bot {
+    margin-bottom: 50px;
+}
+
+
+.left ul li.active {
+    background-color: #00a9ff;
+    color: #fff;
+}
+
+.right {
+    flex: 1;
+
+}
+
+.right .toplabel {
+    height: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+
+
+
+.right .middle {
+    margin-bottom: 60px;
+}
+
+.right .middle .middleitem {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.right .middle .middleitem .is {
+    text-align: left;
+}
+
+.right .middle .middleitem img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    box-shadow:0 0 10px #00000045;
+}
+.right .middle .middleitem .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-bottom: 10px;
+}
+
+

@@ -1,0 +1,110 @@
+#header {
+    width: 100%;
+}
+
+
+.top-search {
+    width: 100%;
+    height: 80px;
+    background-color: #00a9ff;
+    line-height: 80px;
+}
+
+.searcgh {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.searcgh .logo {
+    font-size: 38px;
+    color: #fff;
+    font-weight: 700;
+    margin-right: 40px;
+}
+
+
+.searcgh .seachbox {
+    width: 280px;
+    height: 30px;
+    background-color:rgba(77,194,255, .8);
+    border-radius: 10px;
+    padding: 18px 15px;
+    display: flex;
+    align-items: center;
+    margin-right: 100px;
+}
+.searcgh .seachbox input {
+    background-color:rgba(77,194,255, 0);
+    width: 100px;
+    outline: none;
+    flex: 1;
+
+}
+
+.searcgh .seachbox .icon{
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.searcgh .links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+}
+.searcgh .line {
+    color: #f1f1f1;
+    margin: 0 15px;
+}
+
+.searcgh button {
+    width: 90px;
+    height: 30px;
+    font-size: 15px;
+    color: #00a9ff;
+    background-color: #fff;
+    border-radius: 18px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+
+.bottom-tabs {
+    width: 100%;
+    background-color: rgba(231, 231, 231, 0.2);
+    height: 60px;
+   
+    /* margin-top: 20px; */
+
+}
+
+.bottom-tabs .tabslist {
+    display: flex;
+    align-items: center;
+    height: 60px
+
+}
+
+.bottom-tabs .tabslist .tabs {
+    flex: 1;
+    text-align: center;
+    border-radius:10px;
+    width: 90px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bottom-tabs .tabslist .tabs.active {
+    background-color: #00a9ff;
+    color: #fff;
+    
+}

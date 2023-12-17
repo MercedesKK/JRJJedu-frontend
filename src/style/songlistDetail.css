@@ -1,0 +1,67 @@
+.alls {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+.alls .left {
+    width: 200px;
+    padding-right: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.alls .left img {
+    width: 148px;
+    height: 148px;
+    border: 2xp solid #fff;
+    box-shadow:0 0 10px #00000045;
+}
+
+.alls .left .name {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #666;
+    font-weight: 700;
+    width: 148px;
+}
+
+.alls .left .con {
+    font-size: 15px;
+    margin-top: 10px;
+    color: #999;
+    font-weight: 700;
+    width: 148px;
+}
+
+.alls .right {
+    flex: 1;
+    margin-left: 40px;
+}
+
+.alls .right .title {
+    font-size: 17px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 20px;
+
+}
+
+.alls .right .itemz {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.alls .right .itemz .left1 {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.alls .right .itemz .left1 .name {
+    cursor: pointer;
+}

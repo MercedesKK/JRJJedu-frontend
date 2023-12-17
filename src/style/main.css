@@ -1,0 +1,374 @@
+.main {
+    margin-top: 20px;
+ }
+ 
+ .top {
+    display: flex;
+ 
+ }
+
+ .top .left {
+    width: 640px;
+    margin-right: 40px;
+
+  
+ }
+
+ .top .left .titles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+ }
+
+ .top .left .titles .l{
+    font-size: 22px;
+    color: #666;
+    font-weight: 700;
+ }
+
+ .top .left .titles .r{
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+ }
+
+ .top .left .bttom {
+    display: flex;
+ }
+
+ .top .left .bttom .big {
+    width: 320px;
+    margin-right: 5px;
+ }
+
+ .top .left .bttom .big .img {
+    width: 320px;
+    height: 320px;
+    position: relative;
+ }
+
+ 
+ .top .left .bttom .big .img img {
+    width: 320px;
+    height: 320px;
+    border-radius: 12px;
+ }
+
+ .top .left .bttom .big .img  .num {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+ }
+
+ .top .left .bttom .big .name {
+    font-size: 14px;
+    color: #000;
+    margin-top: 10px;
+    font-weight: 700;
+ }
+
+ .top .left .bttom .smals {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+ }
+
+ .top .left .bttom .smals .items{
+    width: 130px;
+    height: 176px;
+ }
+
+ .top .left .bttom .smals .items .img {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 5px;
+    position: relative;
+ }
+
+ .top .left .bttom .smals .items .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+ }
+
+ .top .left .bttom .smals .items .img .num {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-size: 13px;
+ }
+
+ .top .left .bttom .smals .items  {
+    font-size: 14px;
+
+ }
+ 
+
+
+ .top .right {
+    width: 320px;
+    
+ }
+ 
+
+ .top .right .titles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+ }
+
+ .top .right .titles .l{
+    font-size: 22px;
+    color: #666;
+    font-weight: 700;
+ }
+
+ .top .right .titles .r{
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+   
+ }
+
+ .top .right .righlist .rightitem {
+    display: flex;
+    align-items: center;
+    background-color: rgba(245, 245, 245, 0.445);
+    margin-bottom: 10px;
+ }
+
+ .top .right .righlist .rightitem img {
+    width: 110px;
+    height: 110px;
+    margin-right: 20px;
+ }
+
+ .top .right .righlist .rightitem .islist {
+    font-size: 14px;
+    color: #000;
+ }
+
+ .top .right .righlist .rightitem .islist .istiem {
+    margin-bottom: 5px;
+ }
+
+
+
+
+
+
+
+ .middle {
+    display: flex;
+    margin-top: 60px;
+ }
+
+
+ .middle .left .titles  {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+ }
+
+ .middle .left .titles .l {
+    font-size: 22px;
+    color: #666;
+    font-weight: 700;
+    margin-right: 40px;
+    width: 90px;
+ }
+
+ .middle .left .titles .r ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+ }
+ .middle .left .titles .r ul li{
+    padding: 4px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+ }
+ .middle .left .titles .r ul li.actives {
+    background-color: #00a9ff;
+    color: #fff;
+ }
+
+ .middle .left .bottom {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+ }
+
+ .middle .left .bottom .bitem {
+    width: 280px;
+    height: 62px;
+ }
+
+ .middle .left .bottom .bitem .imgs img {
+    width: 62px;
+    height: 62px;
+    margin-right: 10px;
+    border-radius: 8px;
+ }
+
+ .middle .left .bottom .bitem .imgs {
+    display: flex;
+
+ }
+
+ .middle .left .bottom .bitem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+ }
+
+ .middle .left .bottom .bitem .btns{
+    font-weight: 700;
+    color: #666;
+    display: flex;
+    gap: 10px;
+ }
+
+ .middle .left .bottom .bitem .btns el-icon {
+    cursor: pointer;
+ }
+
+ .middle .right .titles  {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    justify-content: space-between;
+ }
+
+ .middle .right .titles .l {
+    font-size: 22px;
+    color: #666;
+    font-weight: 700;
+    margin-right: 40px;
+ }
+
+ .middle .right .titles .r {
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+ }
+
+ .middle .right .BTTOM .big {
+    width: 100%;
+    height: ;
+    margin-bottom: 5px;
+ }
+
+ .middle .right .BTTOM .big img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+ }
+
+ .middle .right .BTTOM .big .name{
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 700;
+ }
+ 
+
+ .middle .right .BTTOM .sm {
+    display: flex;
+    width: 320px;
+    gap: 5px;
+ }
+
+ .middle .right .BTTOM .sm .sitem {
+   flex: 1;
+   height: 100px;
+ }
+ .middle .right .BTTOM .sm .sitem  img {
+   height: 100px !important;
+   object-fit: cover;
+ }
+
+ .middle .right .BTTOM .sm .sitem .name{
+    margin-top: 5px;
+ }
+
+
+
+.bottom {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.bottom .titles{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+.bottom .titles .l {
+    display: flex;
+    align-items: center;
+}
+
+.bottom .titles .l .titlename {
+    font-size: 22px;
+    color: #666;
+    font-weight: 700;
+    margin-right: 40px;
+}
+.bottom .titles .l ul {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+ }
+ .bottom .titles .l ul li{
+    padding: 4px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+ }
+ .bottom .titles .l ul li.actives {
+    background-color: #00a9ff;
+    color: #fff;
+ }
+
+ .bottom .siggerlist {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+ }
+
+ .bottom .siggerlist .siggerItem img {
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    object-fit: cover;
+ }
+
+ .bottom .siggerlist .siggerItem {
+    width: 140px;
+    text-align: center;
+ }
+
+ .bottom .siggerlist .siggerItem .name {
+   font-size: 14px;
+   color: #666;
+   font-weight: 700;
+   margin-top: 10px;
+ }

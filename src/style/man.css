@@ -1,0 +1,86 @@
+.user {
+    display: flex;
+    margin-bottom: 100px;
+    /* height: 650px; */
+
+    box-shadow:0 0 10px #00000025;
+}
+
+.left {
+    width: 260px;
+    background-color: rgb(224, 240, 255);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.left img {
+    width: 170px;
+    height: 170px;
+    border-radius: 100%;
+    margin-bottom: 35px;
+}
+
+.left .username {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+.left .email {
+    margin-bottom: 5px;
+    color: #666;
+    font-weight: 700;
+}
+
+
+.left button {
+    padding: 8px 60px;
+    background-color: #ffca7f;
+    cursor: pointer;
+    color: #333;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+
+.right {
+    flex: 1;
+    background-color: #fff;
+}
+
+
+.right .tabs {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    gap: 20px;
+    font-size: 16;
+}
+
+.right .tabs div {
+    cursor: pointer;
+    width: 100px;
+}
+
+.right .tabs div.active {
+    color: #00a9ff;
+    font-weight: 700;
+}
+
+
+.right .content {
+    padding: 20px;
+}
+
+
+.changeavatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

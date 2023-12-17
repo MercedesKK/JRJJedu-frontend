@@ -1,0 +1,39 @@
+{
+  "name": "shop-admin-vue3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@vueuse/core": "^10.4.1",
+    "@vueuse/integrations": "^10.4.1",
+    "axios": "^1.5.0",
+    "echarts": "^5.4.3",
+    "element-plus": "^2.3.12",
+    "universal-cookie": "^6.1.1",
+    "vue": "^3.3.4",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^4.2.4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.69.2",
+    "vite": "^4.5.0",
+    "vite-plugin-windicss": "^1.9.1",
+    "windicss": "^3.5.6"
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/chenjinming79/physical-vue.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
