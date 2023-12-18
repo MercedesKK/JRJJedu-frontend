@@ -49,15 +49,15 @@ const reget = () => {
 }
 
 
-const navBar = document.querySelector('#menu');
-window.addEventListener('scroll', function () {
-    console.log(scrollY, 'scrollTop')
-    if (scrollY >= 65) {
-        navBar.classList.add('sticky')
-    } else {
-        navBar.classList.remove('sticky')
-    }
-})
+// const navBar = document.querySelector('#menu');
+// window.addEventListener('scroll', function () {
+//     console.log(scrollY, 'scrollTop')
+//     if (scrollY >= 65) {
+//         navBar.classList.add('sticky')
+//     } else {
+//         navBar.classList.remove('sticky')
+//     }
+// })
 
 
 const toVideoDetaik = (id)=>{
