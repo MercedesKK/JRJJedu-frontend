@@ -52,16 +52,16 @@ const onSubmit = () => {
                 toast("登录成功")
                 if (res.roleId == 1) {
                     router.push('/home')
-                }else {
+                } else {
                     router.push('/')
                 }
-                
+
 
 
             }).finally(() => {
                 loading.value = false
             })
-            
+
         }
 
     })
@@ -98,7 +98,7 @@ onBeforeMount(() => {
                     </div>
                 </el-col>
                 <el-col :span="8" class=" bg-light-50 flex items-center justify-center">
-                    <div  class="p-20">
+                    <div class="p-20">
                         <h2 class="text-3xl text-gray-800 font-bold flex items-center justify-center">欢迎回来</h2>
                         <div class="flex items-center justify-center my-5 text-gray-300 space-x-2">
                             <span class="h-[1px] w-16 bg-gray-200"></span>
@@ -112,21 +112,14 @@ onBeforeMount(() => {
                             <el-form-item prop="password">
                                 <el-input type="password" v-model="form.password" placeholder="请输入密码" show-password />
                             </el-form-item>
-
-<!--                            <el-form-item prop="roleId">-->
-<!--                                <el-select v-model="form.roleId" placeholder="请选择权限" class="w-[250px]">-->
-<!--                                    <el-option v-for="item in role" :key="item.id" :label="item.roleName" :value="item.id">-->
-<!--                                    </el-option>-->
-<!--                                </el-select>-->
-<!--                            </el-form-item>-->
                             <div class="my-2 mb-2" style="font-size: 13px;cursor: pointer;"><router-link
-                                    to="/register">没有账号？点我加入</router-link></div>
+                                    to="/register">没有账号？点我注册</router-link></div>
 
-                                    <div class="my-2 mb-2" style="font-size: 13px;cursor: pointer;"><router-link
+                            <div class="my-2 mb-2" style="font-size: 13px;cursor: pointer;"><router-link
                                     to="/back">找回密码</router-link></div>
                             <el-form-item>
-                                <el-button color="#626aef" round class="w-[250px]" type="primary" @click="onSubmit"
-                                    >登录</el-button>
+                                <el-button color="#626aef" round class="w-[250px]" type="primary"
+                                    @click="onSubmit">登录</el-button>
                             </el-form-item>
                         </el-form>
                     </div>
