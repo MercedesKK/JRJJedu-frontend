@@ -24,36 +24,36 @@ const selectTab = (u) => {
 }
 
 const videos = ref([])
-const getV = () => {
-    getVideo({}).then(res => {
-        videos.value = res.data.list
-    })
-}
-getV()
+// const getV = () => {
+//     getVideo({}).then(res => {
+//         videos.value = res.data.list
+//     })
+// }
+// getV()
 
-const myvideo = ref([])
-const getmyvideo = (tid) => {
-    getVideo({ videoTypeId: tid }).then(res => {
-        myvideo.value = res.data.list
-    })
-}
-getmyvideo()
+// const myvideo = ref([])
+// const getmyvideo = (tid) => {
+//     getVideo({ videoTypeId: tid }).then(res => {
+//         myvideo.value = res.data.list
+//     })
+// }
+// getmyvideo()
 
-const typeIndex = ref(0)
-
-const typedata = ref([])
-const gettypedata = () => {
-    getVideoType({}).then(res => {
-        typedata.value = res.data.list
-        typedata.value.unshift({ name: '全部', id: '' })
-    })
-}
-gettypedata()
-
-const selectTypeIndex = (u, id) => {
-    typeIndex.value = u
-    getmyvideo(id)
-}
+// const typeIndex = ref(0)
+//
+// const typedata = ref([])
+// const gettypedata = () => {
+//     getVideoType({}).then(res => {
+//         typedata.value = res.data.list
+//         typedata.value.unshift({ name: '全部', id: '' })
+//     })
+// }
+// gettypedata()
+//
+// const selectTypeIndex = (u, id) => {
+//     typeIndex.value = u
+//     getmyvideo(id)
+// }
 
 const collects = ref([])
 const getCollect = () => {
@@ -268,7 +268,8 @@ const backbtns = (id)=>{
                                     <el-form :model="form" ref="refForm" label-width="80px">
 
                                         <el-form-item prop="userName" label="用户名">
-                                            <el-input v-model="form.userName" placeholder="请输入用户名" />
+<!--                                            <el-input v-model="form.userName" placeholder="请输入用户名" />-->
+                                          {{ form.userName }}
                                         </el-form-item>
 
                                         <el-form-item prop="password" label="密码">
@@ -279,9 +280,9 @@ const backbtns = (id)=>{
                                             <el-input v-model="form.email" placeholder="请输入邮箱" />
                                         </el-form-item>
 
-                                        <el-form-item prop="phone" label="手机号">
-                                            <el-input v-model="form.phone" placeholder="请输入手机号" />
-                                        </el-form-item>
+<!--                                        <el-form-item prop="phone" label="手机号">-->
+<!--                                            <el-input v-model="form.phone" placeholder="请输入手机号" />-->
+<!--                                        </el-form-item>-->
 
                                         <el-form-item prop="avatar" label="头像">
                                             <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadFile'"
