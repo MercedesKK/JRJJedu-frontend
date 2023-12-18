@@ -16,13 +16,16 @@ const form = reactive({
     password: '',
     email:"",
     phone:"",
-    roleId:0,
+    roleId: "",
     status:0
 })
 
 function getUserRole () {
     getRole().then(res =>{
+      // 把res里的管理员删掉
+
         role.value = res.data.list
+
     })
 }
 getUserRole()

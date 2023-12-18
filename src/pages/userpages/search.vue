@@ -29,7 +29,7 @@ getVideoTypeData()
 
 
 const getVideoData = (tid) => {
-  getCourse({ page: 1, limit: 100,videoTypeId:tid }).then(res => {
+  getCourse({ page: 1, limit: 100,courseTypeId:tid }).then(res => {
         videos.value = res.data.list
     })
 }

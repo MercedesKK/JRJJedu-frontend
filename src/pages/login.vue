@@ -113,12 +113,12 @@ onBeforeMount(() => {
                                 <el-input type="password" v-model="form.password" placeholder="请输入密码" show-password />
                             </el-form-item>
 
-                            <el-form-item prop="roleId">
-                                <el-select v-model="form.roleId" placeholder="请选择权限" class="w-[250px]">
-                                    <el-option v-for="item in role" :key="item.id" :label="item.roleName" :value="item.id">
-                                    </el-option>
-                                </el-select>
-                            </el-form-item>
+<!--                            <el-form-item prop="roleId">-->
+<!--                                <el-select v-model="form.roleId" placeholder="请选择权限" class="w-[250px]">-->
+<!--                                    <el-option v-for="item in role" :key="item.id" :label="item.roleName" :value="item.id">-->
+<!--                                    </el-option>-->
+<!--                                </el-select>-->
+<!--                            </el-form-item>-->
                             <div class="my-2 mb-2" style="font-size: 13px;cursor: pointer;"><router-link
                                     to="/register">没有账号？点我加入</router-link></div>
 

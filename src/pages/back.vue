@@ -112,9 +112,9 @@ const getCodes = ()=>{
                             </el-form-item>
 
 
-                            <el-form-item prop="userName">
-                                <el-input v-model="forme.userName" placeholder="请输入手机号" />
-                            </el-form-item>
+<!--                            <el-form-item prop="userName">-->
+<!--                                <el-input v-model="forme.userName" placeholder="请输入手机号" />-->
+<!--                            </el-form-item>-->
 
                             <el-form-item prop="password">
                                 <el-input v-model="forme.password" placeholder="请输入新密码" />
