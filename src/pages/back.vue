@@ -39,6 +39,7 @@ const loading = ref(false)
 
 // 提交登录按钮
 const onSubmit = () => {
+    form.userName = forme.userName;
     upp(forme).then(res=>{
         if (res.code !== 200) {
             toast(res.message,'error')
@@ -66,7 +67,7 @@ onBeforeMount(() => {
 })
 
 const getCodes = ()=>{
-    getCode(form.userName).then(res=>{
+    getCode(forme.userName).then(res=>{
         if (res.code !== 200) {
             toast(res.message,'error')
             return;
@@ -102,7 +103,7 @@ const getCodes = ()=>{
                         </div>
                         <el-form :model="form" class="w-[250px]"  ref="refForForm">
                             <el-form-item prop="userName">
-                                <el-input v-model="form.userName" placeholder="请输入手机号" />
+                                <el-input v-model="forme.userName" placeholder="请输入手机号" />
                             </el-form-item>
                             <el-form-item prop="password">
                                 <div style="display: flex;align-items: center;">
@@ -112,17 +113,17 @@ const getCodes = ()=>{
                             </el-form-item>
 
 
-                            <el-form-item prop="userName">
-                                <el-input v-model="forme.userName" placeholder="请输入手机号" />
-                            </el-form-item>
+<!--                            <el-form-item prop="userName">-->
+<!--                                <el-input v-model="forme.userName" placeholder="请输入手机号" />-->
+<!--                            </el-form-item>-->
 
                             <el-form-item prop="password">
                                 <el-input v-model="forme.password" placeholder="请输入新密码" />
                             </el-form-item>
 
-                        
 
-                           
+
+
                             <div class="my-2 mb-2" style="font-size: 13px;cursor: pointer;"><router-link
                                     to="/register">没有账号？点我加入</router-link></div>
 
