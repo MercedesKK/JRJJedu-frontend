@@ -18,6 +18,7 @@ const leindexList = ref([]);
 const getDetail = (ids) => {
     detailCourse(ids).then(res => {
         detailData.value = res.data
+      console.log(res.data)
         playUrls.value = res.data.courseChapterList[0].courseChapterVideoList[0].videoUrl
         // 定义一个数组来存储每个el-collapse-item的索引值
 
@@ -79,15 +80,15 @@ const toVideoDetaik = (id) => {
     }, 200);
 }
 
-const navBar = document.querySelector('#menu');
-window.addEventListener('scroll', function () {
-    console.log(scrollY, 'scrollTop')
-    if (scrollY >= 65) {
-        navBar.classList.add('sticky')
-    } else {
-        navBar.classList.remove('sticky')
-    }
-})
+// const navBar = document.querySelector('#menu');
+// window.addEventListener('scroll', function () {
+//     console.log(scrollY, 'scrollTop')
+//     if (scrollY >= 65) {
+//         navBar.classList.add('sticky')
+//     } else {
+//         navBar.classList.remove('sticky')
+//     }
+// })
 
 const isPlay = ref(true)
 

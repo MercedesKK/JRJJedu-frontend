@@ -57,7 +57,7 @@ const onSubmit = () => {
             return false;
         } else {
             loading.value = true
-
+            form.phone = form.userName;
             createUser(form).then(res => {
                 if (res.code !== 200) {
                     toast(res.message, "error")
