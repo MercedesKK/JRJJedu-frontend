@@ -2,7 +2,7 @@
 import { ref, reactive, computed } from 'vue'
 import { toast, dateString, messageBox } from "~/composables/util"
 import { Plus } from '@element-plus/icons-vue'
-import { getCourse, createCourse, deleteCourse, updateCourse,getCourseType,getUserData } from '~/api/manager'
+import { getCourse, createCourse, deleteCourse, updateCourse, getCourseType, getUserData } from '~/api/manager'
 
 
 const tableData = ref([])
@@ -10,8 +10,8 @@ const roleData = ref([])
 
 const udata = ref({})
 
-const gdatau = ()=>{
-    getUserData().then(res=>{
+const gdatau = () => {
+    getUserData().then(res => {
         udata.value = res.data
     })
 }
@@ -62,7 +62,7 @@ const form = reactive({
     courseTypeId: '',
     graphicDetails: '',
     imgUrl: '',
-    price:''
+    price: ''
 })
 
 
@@ -78,7 +78,7 @@ const handleAvatarSuccess = (
 }
 
 const beforeAvatarUpload = (rawFile) => {
-   if (rawFile.size / 1024 / 1024 > 2) {
+    if (rawFile.size / 1024 / 1024 > 2) {
         toast('Avatar picture size can not exceed 2MB!', "error")
         return false
     }
@@ -96,7 +96,7 @@ const handleAvatarSuccess2 = (
 }
 
 const beforeAvatarUpload2 = (rawFile) => {
-  
+
     return true
 }
 
@@ -120,7 +120,7 @@ const resetForm = (row = false) => {
 // 打开新增模态框
 function openHandleCreateModal() {
     if (udata.value.status != 1) {
-        toast("认证未通过，不能进行操作！","error" );
+        toast("认证未通过，不能进行操作！", "error");
         return;
     }
     modalId.value = 0
@@ -129,7 +129,7 @@ function openHandleCreateModal() {
         courseTypeId: '',
         graphicDetails: '',
         imgUrl: '',
-        price:''
+        price: ''
     })
     addFormDialog.value = true
 }
@@ -137,7 +137,7 @@ function openHandleCreateModal() {
 // 修改
 const handleEdit = (row) => {
     if (udata.value.status !== 1) {
-        toast("认证未通过，不能进行操作！","error" );
+        toast("认证未通过，不能进行操作！", "error");
         return;
     }
     modalId.value = row.id
@@ -147,20 +147,20 @@ const handleEdit = (row) => {
 
 // 提交新增表单
 function handleSubmit() {
-    const fun = modalId.value ? updateCourse({ id: modalId.value, name: form.name, courseTypeId: form.courseTypeId, graphicDetails: form.graphicDetails,price:form.price,imgUrl:form.imgUrl }) : createCourse(form)
+    const fun = modalId.value ? updateCourse({ id: modalId.value, name: form.name, courseTypeId: form.courseTypeId, graphicDetails: form.graphicDetails, price: form.price, imgUrl: form.imgUrl }) : createCourse(form)
 
-        fun.then(res => {
-            if (res.code !== 200) {
-                toast(res.message, "error");
-                return;
-            } else {
-                toast(modalTitle.value + '成功!')
-                getData()
-                refForm.value.resetFields()
-                addFormDialog.value = false
-            }
+    fun.then(res => {
+        if (res.code !== 200) {
+            toast(res.message, "error");
+            return;
+        } else {
+            toast(modalTitle.value + '成功!')
+            getData()
+            refForm.value.resetFields()
+            addFormDialog.value = false
+        }
 
-        })
+    })
 }
 
 
@@ -169,7 +169,7 @@ function handleSubmit() {
 // 删除
 const handleDelete = (id) => {
     if (udata.value.status !== 1) {
-        toast("认证未通过，不能进行操作！","error" );
+        toast("认证未通过，不能进行操作！", "error");
         return;
     }
     messageBox("确定要删除吗？").then(isres => {
@@ -212,7 +212,7 @@ const handleDelete = (id) => {
 
         <!-- 新增 刷新 -->
         <div class="flex items-center justify-between mb4">
-            <el-button type="primary" size="middle" @click="openHandleCreateModal" >新增</el-button>
+            <el-button type="primary" size="middle" @click="openHandleCreateModal">新增</el-button>
             <el-button text>
                 <el-icon :size="20" @click="getData">
                     <Refresh></Refresh>
@@ -232,17 +232,17 @@ const handleDelete = (id) => {
                     </div>
                 </template>
             </el-table-column>
-           
+
             <el-table-column prop="name" label="昵称" align="center"></el-table-column>
-            
+
             <el-table-column prop="courseTypeName" label="分类" align="center"></el-table-column>
             <el-table-column prop="graphicDetails" label="简介" align="center"></el-table-column>
-           
-<!--            <el-table-column prop="status" label="上架/下架" align="center">-->
-<!--                <template #default="scope">-->
-<!--                    <span>{{ scope.row.status == 1 ? '上架' : '下架' }}</span>-->
-<!--                </template>-->
-<!--            </el-table-column>-->
+
+            <!--            <el-table-column prop="status" label="上架/下架" align="center">-->
+            <!--                <template #default="scope">-->
+            <!--                    <span>{{ scope.row.status == 1 ? '上架' : '下架' }}</span>-->
+            <!--                </template>-->
+            <!--            </el-table-column>-->
             <el-table-column prop="price" label="价格" align="center"></el-table-column>
             <el-table-column label="创建时间" align="center">
                 <template #default="scope">
@@ -251,8 +251,8 @@ const handleDelete = (id) => {
             </el-table-column>
             <el-table-column label="操作" align="center" minWidth="200">
                 <template #default="scope">
-<!--                    <el-button type="primary" size="small" @click="yes(scope.row)" v-if="scope.row.status != 1 && udata.roleId == 0">上架</el-button>-->
-<!--                    <el-button type="warning" size="small" @click="no(scope.row)" v-if="scope.row.status == 1 && udata.roleId == 0">下架</el-button>-->
+                    <!--                    <el-button type="primary" size="small" @click="yes(scope.row)" v-if="scope.row.status != 1 && udata.roleId == 0">上架</el-button>-->
+                    <!--                    <el-button type="warning" size="small" @click="no(scope.row)" v-if="scope.row.status == 1 && udata.roleId == 0">下架</el-button>-->
                     <el-button type="primary" size="small" @click="handleEdit(scope.row)">修改</el-button>
                     <el-button type="danger" size="small" @click="handleDelete(scope.row.id)">删除</el-button>
                 </template>
@@ -266,10 +266,9 @@ const handleDelete = (id) => {
 
 
         <!-- 模态框 -->
-        <el-dialog v-model="addFormDialog" :title="modalTitle" width="30%" 
-            :close-on-click-modal="false">
+        <el-dialog v-model="addFormDialog" :title="modalTitle" width="30%" :close-on-click-modal="false">
 
-            <el-form :model="form"  ref="refForm" label-width="80px">
+            <el-form :model="form" ref="refForm" label-width="80px">
 
                 <el-form-item prop="name" label="昵称">
                     <el-input v-model="form.name" placeholder="昵称" />
@@ -281,10 +280,10 @@ const handleDelete = (id) => {
 
 
                 <el-form-item prop="graphicDetails" label="简介">
-                   <textarea name="" id="" cols="30" rows="10" v-model="form.graphicDetails"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" v-model="form.graphicDetails"></textarea>
                 </el-form-item>
 
-               
+
 
                 <el-form-item prop="videoTypeId" label="分类">
                     <el-select v-model="form.courseTypeId" placeholder="分类">
@@ -294,11 +293,11 @@ const handleDelete = (id) => {
                 </el-form-item>
 
 
-              
-               
+
+
                 <el-form-item prop="imgUrl" label="图片">
-                    <el-upload class="avatar-uploader" :action="$elyasApi+'/file/uploadSingle'"
-                        :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+                    <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'" :show-file-list="false"
+                        :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
                         <img v-if="form.imgUrl" :src="form.imgUrl" class="avatar" />
                         <el-icon v-else class="avatar-uploader-icon">
                             <Plus />
@@ -307,13 +306,13 @@ const handleDelete = (id) => {
                 </el-form-item>
 
 
-            
 
 
 
-          
 
-                
+
+
+
             </el-form>
 
 
@@ -361,14 +360,14 @@ const handleDelete = (id) => {
     text-align: center;
 }
 
-.detailDss{
-width: 150px;
-height: 40px;
-font-size: 14px;
-overflow: hidden;
-text-overflow: ellipsis;
-display: -webkit-box;
--webkit-line-clamp: 1;
--webkit-box-orient: vertical;
+.detailDss {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 </style>
