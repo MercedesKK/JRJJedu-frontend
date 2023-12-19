@@ -59,7 +59,9 @@ const collects = ref([])
 const getCollect = () => {
     getFa({}).then(res => {
         collects.value = res.data.list
+        console.log(collects.value)
     })
+
 }
 getCollect()
 
@@ -67,7 +69,7 @@ const handleAvatarSuccess = (
     response,
     uploadFile
 ) => {
-    form.avatar = uploadFile.response.data.remoteVideoUrl
+    form.avatar = uploadFile.response.data
     console.log(form.avatar, 'form.avatar')
 }
 
@@ -285,7 +287,7 @@ const backbtns = (id)=>{
 <!--                                        </el-form-item>-->
 
                                         <el-form-item prop="avatar" label="头像">
-                                            <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadFile'"
+                                            <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'"
                                                 :show-file-list="false" :on-success="handleAvatarSuccess"
                                                 :before-upload="beforeAvatarUpload">
                                                 <img v-if="form.avatar" :src="form.avatar" class="avatar" />
@@ -318,8 +320,8 @@ const backbtns = (id)=>{
 
                             <div class="my-video-list" id="mySaveAll">
                             <div class="my-video-item" v-for="(element, index) in collects" :key="index" >
-                                <img :src="element.videoImgUrl" alt="" @click="toVideoDetaik(element.momentId)">
-                                <div class="item-title">{{ element.videoName }}</div>
+                                <img :src="element.imgUrl" alt="" @click="toVideoDetaik(element.momentId)">
+                                <div class="item-title">{{ element.courseName }}</div>
                                 <div class="icons-list">
                                     
 
