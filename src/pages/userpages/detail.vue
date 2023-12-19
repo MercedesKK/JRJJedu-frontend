@@ -2,7 +2,7 @@
 import { ref, reactive, computed } from 'vue'
 import { toast, dateString, messageBox } from "~/composables/util"
 import { Plus } from '@element-plus/icons-vue'
-import { } from '~/api/manager'
+import {updateOr} from '~/api/manager'
 import { useRouter } from 'vue-router'
 import { detailCourse, getCourse, createCommentMoment, createFa, createOr } from '~/api/manager'
 import { useStore } from 'vuex'
@@ -112,36 +112,93 @@ const save = () => {
     })
 }
 
+// const toOr = () => {
+//     createOr(
+//         {
+//             totalMoney: detailData.value.price ? detailData.value.price : 1,
+//             orderDetailsList: [{
+//                 goodsId: detailData.value.id,
+//                 price: detailData.value.price ? detailData.value.price : 1,
+//                 num: 1
+//             }]
+//         }
+//     ).then(res => {
+//         if (res.code !== 200) {
+//             toast(res.message, 'error')
+//             return;
+//         } else {
+//             messageBox("确认购买").then(isres => {
+//                 updateOr({id:detailData.value.id,status:1}).then(res=>{
+//                     if (res.code !== 200) {
+//                         toast(res.message,'error')
+//                         return;
+//                     } else {
+//                         toast('购买成功！即将跳转支付页面...')
+//
+//                         setTimeout(() => {
+//                             router.push('/detail2?id=' + isId)
+//                             const div = document.createElement('divform');
+//                             div.innerHTML = res.data;
+//                             document.body.appendChild(div);
+//                             document.forms['punchout_form'].setAttribute('target', '_blank')
+//                             document.forms['punchout_form'].submit()
+//
+//
+//                         }, 1000);
+//                     }
+//                 })
+//             }).catch(resp => {
+//
+//                 router.push("/mine")
+//             })
+//             // getDetail(isId)
+//         }
+//     })
+// }
 
 const toOr = () => {
-    createOr(
-        {
-            totalMoney: detailData.value.price ? detailData.value.price : 1,
-            orderDetailsList: [{
-                goodsId: detailData.value.id,
-                price: detailData.value.price ? detailData.value.price : 1,
-                num: 1
-            }]
-        }
-    ).then(res => {
-        if (res.code !== 200) {
-            toast(res.message, 'error')
-            return;
-        } else {
-            toast('购买成功！即将跳转支付页面...')
+    messageBox("确认购买")
+        .then(isres => {
+            createOr(
+                {
+                    totalMoney: detailData.value.price ? detailData.value.price : 1,
+                    orderDetailsList: [{
+                        goodsId: detailData.value.id,
+                        price: detailData.value.price ? detailData.value.price : 1,
+                        num: 1
+                    }],
+                    status: 1,
+                })
+                .then(resp => {
+                    toast('购买成功！即将跳转支付页面...')
 
-            setTimeout(() => {
-                const div = document.createElement('divform');
-                div.innerHTML = res.data;
-                document.body.appendChild(div);
-                document.forms['punchout_form'].setAttribute('target', '_blank')
-                document.forms['punchout_form'].submit()
+                    setTimeout(() => {
+                        router.push('/detail2?id=' + isId)
+                        const div = document.createElement('divform');
+                        div.innerHTML = res.data;
+                        document.body.appendChild(div);
+                        document.forms['punchout_form'].setAttribute('target', '_blank')
+                        document.forms['punchout_form'].submit()
 
 
-            }, 1000);
-            // getDetail(isId)
-        }
+                    }, 1000);
+                })
     })
+        .catch(resp => { // 不买了
+            createOr(
+                {
+                    totalMoney: detailData.value.price ? detailData.value.price : 1,
+                    orderDetailsList: [{
+                        goodsId: detailData.value.id,
+                        price: detailData.value.price ? detailData.value.price : 1,
+                        num: 1
+                    }],
+                    status: 0,
+                })
+                .then(resp => {
+                    toast('请及时支付~')
+                })
+        })
 }
 
 </script>
@@ -172,7 +229,7 @@ const toOr = () => {
                         </div>
                         <div class="videowindow" style="position: relative;">
                             <video :src="detailData.videoUrl" :controls="isPlay"></video>
-                            <div class="ram" v-show="!isPlay">请购买之后在观看该课程！</div>
+                            <div class="ram" v-show="!isPlay">请购买之后再观看该课程！</div>
                         </div>
                         <div class="contentt" style="margin: 15px 0;" v-html="detailData.graphicDetails">
 
@@ -183,6 +240,13 @@ const toOr = () => {
                             @click="toOr">购买课程</button>
                         <span style="margin-left: 20px;font-size: 22px;font-weight: 700;color: #ff8000;">￥{{
                             detailData.price ? detailData.price : 1 }}</span>
+                        <a href="https://work.weixin.qq.com/kfid/kfc76a1c0ddfb28ed47" target="_blank">
+                            <img
+                                src="../../assets/images/lianxikefu.png"
+                                alt="联系客服"
+                                style="width: 15%; margin: 20px;"
+                            >
+                        </a>
                     </div>
 
                     <div class="comment-wrapper">

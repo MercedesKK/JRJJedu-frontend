@@ -18,7 +18,6 @@ const leindexList = ref([]);
 const getDetail = (ids) => {
     detailCourse(ids).then(res => {
         detailData.value = res.data
-      console.log(res.data)
         playUrls.value = res.data.courseChapterList[0].courseChapterVideoList[0].videoUrl
         // 定义一个数组来存储每个el-collapse-item的索引值
 
@@ -112,37 +111,37 @@ const save = () => {
 }
 
 
-const toOr = () => {
-    createOr(
-        {
-            totalMoney: detailData.value.price ? detailData.value.price : 1,
-            orderDetailsList: [{
-                goodsId: detailData.value.id,
-                price: detailData.value.price ? detailData.value.price : 1,
-                num: 1
-            }]
-        }
-    ).then(res => {
-        if (res.code !== 200) {
-            toast(res.message, 'error')
-            return;
-        } else {
-            toast('购买成功！即将跳转支付页面...')
-
-            setTimeout(() => {
-                const div = document.createElement('divform');
-                div.innerHTML = res.data;
-                document.body.appendChild(div);
-                document.forms['punchout_form'].setAttribute('target', '_blank')
-                document.forms['punchout_form'].submit()
-
-
-            }, 1000);
-            // getDetail(isId)
-        }
-    })
-}
-
+// const toOr = () => {
+//     createOr(
+//         {
+//             totalMoney: detailData.value.price ? detailData.value.price : 1,
+//             orderDetailsList: [{
+//                 goodsId: detailData.value.id,
+//                 price: detailData.value.price ? detailData.value.price : 1,
+//                 num: 1
+//             }]
+//         }
+//     ).then(res => {
+//         if (res.code !== 200) {
+//             toast(res.message, 'error')
+//             return;
+//         } else {
+//             toast('购买成功！即将跳转支付页面...')
+//
+//             setTimeout(() => {
+//                 const div = document.createElement('divform');
+//                 div.innerHTML = res.data;
+//                 document.body.appendChild(div);
+//                 document.forms['punchout_form'].setAttribute('target', '_blank')
+//                 document.forms['punchout_form'].submit()
+//
+//
+//             }, 1000);
+//             // getDetail(isId)
+//         }
+//     })
+// }
+//
 
 
 
@@ -181,10 +180,10 @@ const toOr = () => {
                         </div>
                         <button class="sendBtn" id="commentBtn" style="cursor: pointer;margin-right: 10px;"
                             @click="save">收藏</button>
-                        <button class="sendBtn" id="commentBtn" style="cursor: pointer;background-color: rgb(255, 140, 82);"
-                            @click="toOr">购买课程</button>
-                        <span style="margin-left: 20px;font-size: 22px;font-weight: 700;color: #ff8000;">￥{{
-                            detailData.price ? detailData.price : 1 }}</span>
+<!--                        <button class="sendBtn" id="commentBtn" style="cursor: pointer;background-color: rgb(255, 140, 82);"-->
+<!--                            @click="toOr">购买课程</button>-->
+<!--                        <span style="margin-left: 20px;font-size: 22px;font-weight: 700;color: #ff8000;">￥{{-->
+<!--                            detailData.price ? detailData.price : 1 }}</span>-->
                     </div>
 
                     <div class="comment-wrapper">
