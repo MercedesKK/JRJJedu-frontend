@@ -73,9 +73,42 @@ const selectTyped = (id)=>{
 
 <template>
     <div>
-        <section class="banxin">
+        <section class="banxin" style="margin-top: 20px">
+            <el-button
+                key="plain"
+                type=""
+                link
+            >
+                <img src="../../../src/assets/images/douyin-removebg-preview.png" style="width: 40px; margin-right: 5px;" >
+                 <a href="https://www.douyin.com/user/MS4wLjABAAAABRagcWJfw-FP_COPcH_pD72dY43Xw4-uDHnqXf7NauCvjipgx2_qnGqBZ_CSOI0B" target="_blank">嘉靖学长-只讲干货</a>
+            </el-button>
+            <el-button
+                key="plain"
+                type=""
+                link
+            >
+                <img src="../../../src/assets/images/kuaishou.png" style="width: 80px; margin-right: 5px;" >
+                <a href="https://www.kuaishou.com/profile/3xcchs5z8gfdfpm" target="_blank">嘉靖学长-只讲干货</a>
+            </el-button>
+            <el-button
+                key="plain"
+                type=""
+                link
+            >
+                <img src="../../../src/assets/images/xiaohongshu.png" style="width: 80px; margin-right: 5px;" >
+                <a href="https://www.xiaohongshu.com/user/profile/6257d67300000000210268fa" target="_blank">嘉靖学长-只讲干货</a>
+            </el-button>
+            <el-button
+                key="plain"
+                type=""
+                link
+            >
+                <img src="../../../src/assets/images/blbl.png" style="width: 80px; margin-right: 5px;" >
+                <a href="https://space.bilibili.com/694007308?spm_id_from=333.337.search-card.all.click" target="_blank">嘉靖学长-只讲干货</a>
+            </el-button>
+
             <div class="main_top">
-                
+
                 <div class="middle" style="display: flex;align-items: center;">
                     <div style="font-size: 20px;font-weight: 700;margin-right: 10px;">授课阶段：</div>
                     <ul class="middle_types">
