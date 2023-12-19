@@ -42,14 +42,14 @@ const refForm = ref(null)
 
 const form = reactive({
     roleName: '',
-    
+
 })
 
 const rules = {
     roleName: [
         { required: true, message: '名称不能为空', trigger: 'blur' },
     ],
-   
+
 }
 
 
@@ -75,7 +75,7 @@ function openHandleCreateModal() {
     modalId.value = 0
     resetForm({
         roleName: '',
-       
+
     })
     addFormDialog.value = true
 }
@@ -154,9 +154,9 @@ const handleDelete = (id) => {
 
         <el-table :data="tableData" stripe style="width: 100%">
             <el-table-column prop="id" label="id" align="center"></el-table-column>
-            
+
             <el-table-column prop="roleName" label="名称" align="center"></el-table-column>
-            
+
             <el-table-column label="创建时间" align="center">
                 <template #default="scope">
                     <span>{{ dateString(scope.row.createdAt) }}</span>
@@ -177,8 +177,7 @@ const handleDelete = (id) => {
 
 
         <!-- 模态框 -->
-        <el-dialog v-model="addFormDialog" :title="modalTitle" width="30%" 
-            :close-on-click-modal="false">
+        <el-dialog v-model="addFormDialog" :title="modalTitle" width="30%" :close-on-click-modal="false">
 
             <el-form :model="form" :rules="rules" ref="refForm" label-width="80px">
 
@@ -186,7 +185,7 @@ const handleDelete = (id) => {
                     <el-input v-model="form.roleName" placeholder="名称" />
                 </el-form-item>
 
-        
+
             </el-form>
 
 
@@ -206,6 +205,4 @@ const handleDelete = (id) => {
 </template>
 
 
-<style scoped>
-
-</style>
+<style scoped></style>

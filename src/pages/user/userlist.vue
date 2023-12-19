@@ -63,7 +63,7 @@ const rules = {
     password: [
         { required: true, message: '密码不能为空', trigger: 'blur' },
     ],
-   
+
 }
 
 
@@ -116,11 +116,11 @@ function openHandleCreateModal() {
 }
 
 // 修改
-const handleEdit = (row) => {
-    modalId.value = row.id
-    resetForm(row)
-    addFormDialog.value = true
-}
+// const handleEdit = (row) => {
+//     modalId.value = row.id
+//     resetForm(row)
+//     addFormDialog.value = true
+// }
 
 // 提交新增表单
 function handleSubmit() {
@@ -147,7 +147,7 @@ function handleSubmit() {
 
 
 
- 
+
 
 
 
@@ -212,7 +212,7 @@ const handleDelete = (id) => {
                     </div>
                 </template>
             </el-table-column>
-          
+
             <el-table-column label="创建时间" align="center">
                 <template #default="scope">
                     <span>{{ dateString(scope.row.createdAt) }}</span>
@@ -220,7 +220,7 @@ const handleDelete = (id) => {
             </el-table-column>
             <el-table-column label="操作" align="center">
                 <template #default="scope">
-                    <el-button type="primary" size="small" @click="handleEdit(scope.row)">修改</el-button>
+                    <!-- <el-button type="primary" size="small" @click="handleEdit(scope.row)">修改</el-button> -->
                     <el-button type="danger" size="small" @click="handleDelete(scope.row.id)">删除</el-button>
                 </template>
             </el-table-column>
@@ -233,8 +233,7 @@ const handleDelete = (id) => {
 
 
         <!-- 模态框 -->
-        <el-dialog v-model="addFormDialog" :title="modalTitle" width="30%" 
-            :close-on-click-modal="false">
+        <el-dialog v-model="addFormDialog" :title="modalTitle" width="30%" :close-on-click-modal="false">
 
             <el-form :model="form" :rules="rules" ref="refForm" label-width="80px">
 
@@ -246,11 +245,11 @@ const handleDelete = (id) => {
                     <el-input v-model="form.password" placeholder="请输入密码" />
                 </el-form-item>
 
-        
+
 
                 <el-form-item prop="avatar" label="头像">
-                    <el-upload class="avatar-uploader" :action="$elyasApi+'/file/uploadSingle'"
-                        :show-file-list="false" :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
+                    <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'" :show-file-list="false"
+                        :on-success="handleAvatarSuccess" :before-upload="beforeAvatarUpload">
                         <img v-if="form.avatar" :src="form.avatar" class="avatar" />
                         <el-icon v-else class="avatar-uploader-icon">
                             <Plus />

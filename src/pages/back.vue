@@ -3,7 +3,7 @@ import { ref, reactive, onMounted, onBeforeMount } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
 import { toast } from '~/composables/util'
-import { getRole,getCode,upp } from '~/api/manager'
+import { getRole, getCode, upp } from '~/api/manager'
 
 
 const router = useRouter()
@@ -40,11 +40,11 @@ const loading = ref(false)
 // 提交登录按钮
 const onSubmit = () => {
     form.userName = forme.userName;
-    upp(forme).then(res=>{
+    upp(forme).then(res => {
         if (res.code !== 200) {
-            toast(res.message,'error')
+            toast(res.message, 'error')
             return;
-        }else {
+        } else {
             toast('操作成功！')
         }
     })
@@ -66,12 +66,12 @@ onBeforeMount(() => {
     document.removeEventListener("keyup", onKeyUp)
 })
 
-const getCodes = ()=>{
-    getCode(forme.userName).then(res=>{
+const getCodes = () => {
+    getCode(forme.userName).then(res => {
         if (res.code !== 200) {
-            toast(res.message,'error')
+            toast(res.message, 'error')
             return;
-        }else {
+        } else {
             toast('验证码已发送，请查收')
         }
     })
@@ -94,28 +94,28 @@ const getCodes = ()=>{
                     </div>
                 </el-col>
                 <el-col :span="8" class=" bg-light-50 flex items-center justify-center">
-                    <div  class="p-20">
+                    <div class="p-20">
                         <h2 class="text-3xl text-gray-800 font-bold flex items-center justify-center">欢迎回来</h2>
                         <div class="flex items-center justify-center my-5 text-gray-300 space-x-2">
                             <span class="h-[1px] w-16 bg-gray-200"></span>
                             <span>找回密码</span>
                             <span class="h-[1px] w-16 bg-gray-200"></span>
                         </div>
-                        <el-form :model="form" class="w-[250px]"  ref="refForForm">
+                        <el-form :model="form" class="w-[250px]" ref="refForForm">
                             <el-form-item prop="userName">
                                 <el-input v-model="forme.userName" placeholder="请输入手机号" />
                             </el-form-item>
                             <el-form-item prop="password">
                                 <div style="display: flex;align-items: center;">
                                     <el-input type="text" v-model="forme.code" placeholder="输入验证码" show-password />
-                                <el-button @click="getCodes">发送验证码</el-button>
+                                    <el-button @click="getCodes">发送验证码</el-button>
                                 </div>
                             </el-form-item>
 
 
-<!--                            <el-form-item prop="userName">-->
-<!--                                <el-input v-model="forme.userName" placeholder="请输入手机号" />-->
-<!--                            </el-form-item>-->
+                            <!--                            <el-form-item prop="userName">-->
+                            <!--                                <el-input v-model="forme.userName" placeholder="请输入手机号" />-->
+                            <!--                            </el-form-item>-->
 
                             <el-form-item prop="password">
                                 <el-input v-model="forme.password" placeholder="请输入新密码" />
@@ -127,9 +127,10 @@ const getCodes = ()=>{
                             <div class="my-2 mb-2" style="font-size: 13px;cursor: pointer;"><router-link
                                     to="/register">没有账号？点我加入</router-link></div>
 
-                                    
+
                             <el-form-item>
-                                <el-button color="#626aef" round class="w-[250px]" type="primary" @click="onSubmit" v-show="forme.userName != '' && forme.password != '' && forme.code != ''">完成</el-button>
+                                <el-button color="#626aef" round class="w-[250px]" type="primary" @click="onSubmit"
+                                    v-show="forme.userName != '' && forme.password != '' && forme.code != ''">完成</el-button>
                             </el-form-item>
                         </el-form>
                     </div>
