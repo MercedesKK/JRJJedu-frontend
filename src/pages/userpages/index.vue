@@ -25,10 +25,10 @@ const toMine = () => {
   router.push(`/mine`)
 }
 
-const inputvalue = ref('')
-const searchHandleClick = () => {
-  router.push(`/searchpage?id=${inputvalue.value}`)
-}
+// const inputvalue = ref('')
+// const searchHandleClick = () => {
+//   router.push(`/searchpage?id=${inputvalue.value}`)
+// }
 
 
 const toAdd = () => {
@@ -58,10 +58,10 @@ const toHome = () => {
             </ul>
           </div>
 
-          <div class="search">
+          <!-- <div class="search">
             <input type="text" class="search_input" placeholder="请输入内容。。。" v-model="inputvalue" />
             <i class="fab fa-sistrix" @click="searchHandleClick"></i>
-          </div>
+          </div> -->
 
           <div class="right">
             <ul class="right_ul">
