@@ -136,6 +136,10 @@ function openHandleCreateModal() {
 
 // 修改
 const handleEdit = (row) => {
+    if (udata.value.status !== 1) {
+        toast("认证未通过，不能进行操作！", "error");
+        return;
+    }
     modalId.value = row.id
     resetForm(row)
     addFormDialog.value = true
@@ -164,6 +168,10 @@ function handleSubmit() {
 
 // 删除
 const handleDelete = (id) => {
+    if (udata.value.status !== 1) {
+        toast("认证未通过，不能进行操作！", "error");
+        return;
+    }
     messageBox("确定要删除吗？").then(isres => {
         deleteCourse(id).then(res => {
             if (res.code !== 200) {
@@ -177,17 +185,17 @@ const handleDelete = (id) => {
     })
 }
 
-const yes = (data) => {
-    updateVideo({ id: data.id, status: 1 }).then(res => {
-        getData()
-    })
-}
-
-const no = (data) => {
-    updateVideo({ id: data.id, status: 0 }).then(res => {
-        getData()
-    })
-}
+// const yes = (data)=>{
+//     updateVideo({id:data.id,status:1}).then(res=>{
+//         getData()
+//     })
+// }
+//
+// const no = (data)=>{
+//     updateVideo({id:data.id,status:0}).then(res=>{
+//         getData()
+//     })
+// }
 
 </script>
 
@@ -230,11 +238,11 @@ const no = (data) => {
             <el-table-column prop="courseTypeName" label="分类" align="center"></el-table-column>
             <el-table-column prop="graphicDetails" label="简介" align="center"></el-table-column>
 
-            <el-table-column prop="status" label="上架/下架" align="center">
-                <template #default="scope">
-                    <span>{{ scope.row.status == 1 ? '上架' : '下架' }}</span>
-                </template>
-            </el-table-column>
+            <!--            <el-table-column prop="status" label="上架/下架" align="center">-->
+            <!--                <template #default="scope">-->
+            <!--                    <span>{{ scope.row.status == 1 ? '上架' : '下架' }}</span>-->
+            <!--                </template>-->
+            <!--            </el-table-column>-->
             <el-table-column prop="price" label="价格" align="center"></el-table-column>
             <el-table-column label="创建时间" align="center">
                 <template #default="scope">
@@ -243,10 +251,8 @@ const no = (data) => {
             </el-table-column>
             <el-table-column label="操作" align="center" minWidth="200">
                 <template #default="scope">
-                    <el-button type="primary" size="small" @click="yes(scope.row)"
-                        v-if="scope.row.status != 1 && udata.roleId == 0">上架</el-button>
-                    <el-button type="warning" size="small" @click="no(scope.row)"
-                        v-if="scope.row.status == 1 && udata.roleId == 0">下架</el-button>
+                    <!--                    <el-button type="primary" size="small" @click="yes(scope.row)" v-if="scope.row.status != 1 && udata.roleId == 0">上架</el-button>-->
+                    <!--                    <el-button type="warning" size="small" @click="no(scope.row)" v-if="scope.row.status == 1 && udata.roleId == 0">下架</el-button>-->
                     <el-button type="primary" size="small" @click="handleEdit(scope.row)">修改</el-button>
                     <el-button type="danger" size="small" @click="handleDelete(scope.row.id)">删除</el-button>
                 </template>

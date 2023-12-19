@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import { login,getUserData } from '~/api/manager'
 import { setToken,removetToken } from '~/composables/auth'
 import { toast } from "~/composables/util"
+import ModuleOrder from './order.js'
 const store = createStore({
     state(){
         return {
@@ -44,6 +45,10 @@ const store = createStore({
             removetToken()
             commit("SET_USERINFO",{})
         }
+    },
+    modules: {
+        order: ModuleOrder,
+
     }
 })
 

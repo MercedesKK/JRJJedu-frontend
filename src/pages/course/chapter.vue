@@ -116,7 +116,7 @@ const resetForm = (row = false) => {
 
 // 打开新增模态框
 function openHandleCreateModal() {
-    if (udata.value.status != 1) {
+    if (udata.value.status !== 1) {
         toast("认证未通过，不能进行操作！","error" );
         return;
     }
@@ -131,6 +131,10 @@ function openHandleCreateModal() {
 
 // 修改
 const handleEdit = (row) => {
+  if (udata.value.status != 1) {
+    toast("认证未通过，不能进行操作！","error" );
+    return;
+  }
     modalId.value = row.id
     resetForm(row)
     addFormDialog.value = true
@@ -159,6 +163,10 @@ function handleSubmit() {
 
 // 删除
 const handleDelete = (id) => {
+    if (udata.value.status != 1) {
+      toast("认证未通过，不能进行操作！","error" );
+      return;
+    }
     messageBox("确定要删除吗？").then(isres => {
         deleteChapter(id).then(res => {
             if (res.code !== 200) {

@@ -59,7 +59,9 @@ const collects = ref([])
 const getCollect = () => {
     getFa({}).then(res => {
         collects.value = res.data.list
+        console.log(collects.value)
     })
+
 }
 getCollect()
 
@@ -67,7 +69,7 @@ const handleAvatarSuccess = (
     response,
     uploadFile
 ) => {
-    form.avatar = uploadFile.response.data.remoteVideoUrl
+    form.avatar = uploadFile.response.data
     console.log(form.avatar, 'form.avatar')
 }
 
@@ -210,7 +212,7 @@ const toVideoDetaik2 =  (id)=>{
 }
 
 const backbtns = (id)=>{
-    updateOr({id:id,status:2}).then(res=>{
+    updateOr({id:id,status:3}).then(res=>{
         if (res.code !== 200) {
             toast(res.message,'error')
             return;
@@ -285,7 +287,7 @@ const backbtns = (id)=>{
 <!--                                        </el-form-item>-->
 
                                         <el-form-item prop="avatar" label="头像">
-                                            <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadFile'"
+                                            <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'"
                                                 :show-file-list="false" :on-success="handleAvatarSuccess"
                                                 :before-upload="beforeAvatarUpload">
                                                 <img v-if="form.avatar" :src="form.avatar" class="avatar" />
@@ -318,8 +320,8 @@ const backbtns = (id)=>{
 
                             <div class="my-video-list" id="mySaveAll">
                             <div class="my-video-item" v-for="(element, index) in collects" :key="index" >
-                                <img :src="element.videoImgUrl" alt="" @click="toVideoDetaik(element.momentId)">
-                                <div class="item-title">{{ element.videoName }}</div>
+                                <img :src="element.imgUrl" alt="" @click="toVideoDetaik(element.momentId)">
+                                <div class="item-title">{{ element.courseName }}</div>
                                 <div class="icons-list">
                                     
 
@@ -339,11 +341,18 @@ const backbtns = (id)=>{
 
                             <div class="my-video-list" id="mySaveAll">
                             <div class="my-video-item" v-for="(element, index) in orders" :key="index" >
-                                <img :src="element.orderDetailsList[0].videoImgUrl" alt="" @click="toVideoDetaik2(element.orderDetailsList[0].goodsId)">
+                                <img v-if="element.status === 0 || element.status === 3" :src="element.orderDetailsList[0].videoImgUrl" alt="" @click="toVideoDetaik(element.orderDetailsList[0].goodsId)">
+                                <img v-if="element.status === 1 || element.status === 2" :src="element.orderDetailsList[0].videoImgUrl" alt="" @click="toVideoDetaik2(element.orderDetailsList[0].goodsId)">
                                 <div class="item-title">{{ element.orderDetailsList[0].videoName }}</div>
                                 <div class="icons-item" style="font-size: 13px;margin-bottom: 5px;">
-                                        <p>订单状态：{{ element.status == 1 ? '售后':'已退单' }}</p>
-                                    </div>
+                                    <p>订单号:{{element.id}}</p>
+                                    <p>订单状态
+                                        <p v-if="element.status === 0">待支付</p>
+                                        <p v-if="element.status === 1">已完成</p>
+                                        <p v-if="element.status === 2">售后中</p>
+                                        <p v-if="element.status === 3">已退款</p>
+                                    </p>
+                                </div>
                                 <div class="icons-list">
                                    
 
@@ -352,7 +361,7 @@ const backbtns = (id)=>{
                                     </div>
                                 </div>
                                 <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;" @click="delOR(element.id)">删除</button>
-                                <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;" @click="backbtns(element.id)" v-if="element.status == 1">退款</button>
+                                <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;" @click="backbtns(element.id)" v-if="element.status === 2">退款</button>
                             </div>
                         </div>
                         </div>

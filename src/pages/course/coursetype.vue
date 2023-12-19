@@ -109,6 +109,10 @@ function openHandleCreateModal() {
 
 // 修改
 const handleEdit = (row) => {
+    if (udata.value.status !== 1) {
+        toast("认证未通过，不能进行操作！","error" );
+        return;
+    }
     modalId.value = row.id
     resetForm(row)
     addFormDialog.value = true
@@ -135,6 +139,10 @@ function handleSubmit() {
 
 // 删除
 const handleDelete = (id) => {
+    if (udata.value.status !== 1) {
+        toast("认证未通过，不能进行操作！","error" );
+        return;
+    }
     messageBox("确定要删除吗？").then(isres => {
         deleteCourseType(id).then(res => {
             if (res.code !== 200) {
