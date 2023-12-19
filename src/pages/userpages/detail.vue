@@ -2,7 +2,7 @@
 import { ref, reactive, computed } from 'vue'
 import { toast, dateString, messageBox } from "~/composables/util"
 import { Plus } from '@element-plus/icons-vue'
-import {updateOr} from '~/api/manager'
+import { updateOr } from '~/api/manager'
 import { useRouter } from 'vue-router'
 import { detailCourse, getCourse, createCommentMoment, createFa, createOr } from '~/api/manager'
 import { useStore } from 'vuex'
@@ -18,7 +18,7 @@ const leindexList = ref([]);
 const getDetail = (ids) => {
     detailCourse(ids).then(res => {
         detailData.value = res.data
-      console.log(res.data)
+        console.log(res.data)
         playUrls.value = res.data.courseChapterList[0].courseChapterVideoList[0].videoUrl
         // 定义一个数组来存储每个el-collapse-item的索引值
 
@@ -175,7 +175,7 @@ const toOr = () => {
                     setTimeout(() => {
                         router.push('/detail2?id=' + isId)
                         const div = document.createElement('divform');
-                        div.innerHTML = res.data;
+                        div.innerHTML = resp.data;
                         document.body.appendChild(div);
                         document.forms['punchout_form'].setAttribute('target', '_blank')
                         document.forms['punchout_form'].submit()
@@ -183,7 +183,7 @@ const toOr = () => {
 
                     }, 1000);
                 })
-    })
+        })
         .catch(resp => { // 不买了
             createOr(
                 {
@@ -209,7 +209,7 @@ const toOr = () => {
             <div class="detail-wrapper">
                 <div class="left">
                     <div class="video-wrapper">
-                        <h1 id="name">
+                        <h1 class="title">
                             {{ detailData.name }}
                         </h1>
                         <div class="info">
@@ -241,14 +241,9 @@ const toOr = () => {
                         <span style="margin-left: 20px;font-size: 22px;font-weight: 700;color: #ff8000;">￥{{
                             detailData.price ? detailData.price : 1 }}</span>
                         <a href="https://work.weixin.qq.com/kfid/kfc76a1c0ddfb28ed47" target="_blank">
-                            <img
-                                src="../../assets/images/lianxikefu.png"
-                                alt="联系客服"
-                                style="width: 15%; margin: 20px;"
-                            >
+                            <img src="../../assets/images/lianxikefu.png" alt="联系客服" style="width: 15%; margin: 20px;">
                         </a>
                     </div>
-
                     <div class="comment-wrapper">
                         <div class="comment-title">
                             评论
@@ -295,7 +290,6 @@ const toOr = () => {
 
                         </div>
                     </div>
-
                 </div>
                 <div class="right">
                     <div class="courselist">
@@ -327,7 +321,6 @@ const toOr = () => {
                                     {{ element.name }}
                                 </div>
                                 <div class="up">
-                                    <span class="upIcon">UP</span>
                                     <p>{{ element.userName }}</p>
                                 </div>
                                 <div class="icons">
@@ -364,8 +357,14 @@ const toOr = () => {
 
 <style scoped>
 @import url(../../assets/css/custom.css);
-
 @import url(../../assets/css/videoDetail.css);
+
+.title {
+    color: #222;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: '华文中宋', 'STZhongsong', serif;
+}
 
 .btnitem {
     display: flex;
@@ -409,5 +408,4 @@ const toOr = () => {
     background-color: #ff8000;
     color: #fff;
 }
-
 </style>

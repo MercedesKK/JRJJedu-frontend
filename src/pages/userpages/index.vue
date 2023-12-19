@@ -35,11 +35,4 @@ if (route.path == '/home') {
 .main {
   margin: 0 100px;
 }
-
-/* .title {
-  font-size: 25px;
-  color: #fff;
-  font-weight: bolder;
-  font-family: '华文中宋', 'STZhongsong', serif;
-} */
 </style>

@@ -16,7 +16,6 @@ const tablist = ref([
     "资料",
     "收藏",
     "订单"
-
 ])
 
 const selectTab = (u) => {
@@ -250,66 +249,45 @@ const backbtns = (id) => {
                 </ul>
 
                 <div class="content">
-
-
                     <section v-show="tabIndex == 0" class="active">
                         <div class="my-all-video">
-                            <div class="left-tab" style="margin-right: 60px;">
-                                <ul class="left-tabx">
-                                    <li class="tabx active">
-                                        <span>个人信息</span>
-                                    </li>
+                            <div class="title" id="pgsavenum">个人信息</div>
+                            <el-card style="margin-left: 100px; padding: 0 100px;" shadow="always">
+                                <el-form :model="form" ref="refForm" label-width="80px">
+                                    <el-form-item prop="userName" label="用户名">
+                                        <!--                                            <el-input v-model="form.userName" placeholder="请输入用户名" />-->
+                                        {{ form.userName }}
+                                    </el-form-item>
 
+                                    <el-form-item prop="password" label="密码">
+                                        <el-input v-model="form.password" placeholder="请输入密码" />
+                                    </el-form-item>
 
-                                </ul>
-                            </div>
-                            <div class="right-content" id="omba">
+                                    <el-form-item prop="email" label="邮箱">
+                                        <el-input v-model="form.email" placeholder="请输入邮箱" />
+                                    </el-form-item>
 
-                                <div class="box active">
+                                    <!--                                        <el-form-item prop="phone" label="手机号">-->
+                                    <!--                                            <el-input v-model="form.phone" placeholder="请输入手机号" />-->
+                                    <!--                                        </el-form-item>-->
 
-                                    <el-form :model="form" ref="refForm" label-width="80px">
-
-                                        <el-form-item prop="userName" label="用户名">
-                                            <!--                                            <el-input v-model="form.userName" placeholder="请输入用户名" />-->
-                                            {{ form.userName }}
-                                        </el-form-item>
-
-                                        <el-form-item prop="password" label="密码">
-                                            <el-input v-model="form.password" placeholder="请输入密码" />
-                                        </el-form-item>
-
-                                        <el-form-item prop="email" label="邮箱">
-                                            <el-input v-model="form.email" placeholder="请输入邮箱" />
-                                        </el-form-item>
-
-                                        <!--                                        <el-form-item prop="phone" label="手机号">-->
-                                        <!--                                            <el-input v-model="form.phone" placeholder="请输入手机号" />-->
-                                        <!--                                        </el-form-item>-->
-
-                                        <el-form-item prop="avatar" label="头像">
-                                            <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'"
-                                                :show-file-list="false" :on-success="handleAvatarSuccess"
-                                                :before-upload="beforeAvatarUpload">
-                                                <img v-if="form.avatar" :src="form.avatar" class="avatar" />
-                                                <el-icon v-else class="avatar-uploader-icon">
-                                                    <Plus />
-                                                </el-icon>
-                                            </el-upload>
-                                        </el-form-item>
+                                    <el-form-item prop="avatar" label="头像">
+                                        <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'"
+                                            :show-file-list="false" :on-success="handleAvatarSuccess"
+                                            :before-upload="beforeAvatarUpload">
+                                            <img v-if="form.avatar" :src="form.avatar" class="avatar" />
+                                            <el-icon v-else class="avatar-uploader-icon">
+                                                <Plus />
+                                            </el-icon>
+                                        </el-upload>
+                                    </el-form-item>
 
 
 
-                                    </el-form>
-
-                                    <button class="gengxxin" onclick="reset()" type="button" @click="sbutton">更新</button>
-                                    <button class="gengxxin" @click="handleoutlogin" type="button">退出</button>
-                                </div>
-
-                                <div class="box">
-                                    two
-                                </div>
-
-                            </div>
+                                </el-form>
+                                <button class="gengxxin" onclick="reset()" type="button" @click="sbutton">更新</button>
+                                <button class="gengxxin" @click="handleoutlogin" type="button">退出</button>
+                            </el-card>
                         </div>
                     </section>
 
@@ -317,21 +295,22 @@ const backbtns = (id) => {
                     <section v-show="tabIndex == 1" class="active">
                         <div class="title" id="pgsavenum">我的收藏</div>
                         <div class="my-video-list" id="pageSave">
-
                             <div class="my-video-list" id="mySaveAll">
-                                <div class="my-video-item" v-for="(element, index) in collects" :key="index">
-                                    <img :src="element.imgUrl" alt="" @click="toVideoDetaik(element.momentId)">
-                                    <div class="item-title">{{ element.courseName }}</div>
-                                    <div class="icons-list">
+                                <el-card style="padding: 0 10px;" shadow="always">
+                                    <div class="my-video-item" v-for="(element, index) in collects" :key="index">
+                                        <img :src="element.imgUrl" alt="" @click="toVideoDetaik(element.momentId)">
+                                        <div class="item-title">{{ element.courseName }}</div>
+                                        <div class="icons-list">
 
 
-                                        <div class="icons-item">
-                                            <p>{{ dateString(element.createdAt) }}</p>
+                                            <div class="icons-item">
+                                                <p>{{ dateString(element.createdAt) }}</p>
+                                            </div>
                                         </div>
+                                        <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
+                                            @click="deleteCol(element.id)">删除</button>
                                     </div>
-                                    <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
-                                        @click="deleteCol(element.id)">删除</button>
-                                </div>
+                                </el-card>
                             </div>
                         </div>
                     </section>
@@ -339,37 +318,39 @@ const backbtns = (id) => {
                     <section v-show="tabIndex == 2" class="active">
                         <div class="title" id="pgsavenum">购买的课程</div>
                         <div class="my-video-list" id="pageSave">
-
                             <div class="my-video-list" id="mySaveAll">
                                 <div class="my-video-item" v-for="(element, index) in orders" :key="index">
-                                    <img v-if="element.status === 0 || element.status === 3"
-                                        :src="element.orderDetailsList[0].videoImgUrl" alt=""
-                                        @click="toVideoDetaik(element.orderDetailsList[0].goodsId)">
-                                    <img v-if="element.status === 1 || element.status === 2"
-                                        :src="element.orderDetailsList[0].videoImgUrl" alt=""
-                                        @click="toVideoDetaik2(element.orderDetailsList[0].goodsId)">
-                                    <div class="item-title">{{ element.orderDetailsList[0].videoName }}</div>
-                                    <div class="icons-item" style="font-size: 13px;margin-bottom: 5px;">
-                                        <p>订单号:{{ element.id }}</p>
-                                        <p>订单状态
-                                        <p v-if="element.status === 0">待支付</p>
-                                        <p v-if="element.status === 1">已完成</p>
-                                        <p v-if="element.status === 2">售后中</p>
-                                        <p v-if="element.status === 3">已退款</p>
-                                        </p>
-                                    </div>
-                                    <div class="icons-list">
-
-
-                                        <div class="icons-item">
-                                            <p>{{ dateString(element.createdAt) }}</p>
+                                    <el-card style="padding: 0 10px;" shadow="always">
+                                        <img v-if="element.status === 0 || element.status === 3"
+                                            :src="element.orderDetailsList[0].videoImgUrl" alt=""
+                                            @click="toVideoDetaik(element.orderDetailsList[0].goodsId)">
+                                        <img v-if="element.status === 1 || element.status === 2"
+                                            :src="element.orderDetailsList[0].videoImgUrl" alt=""
+                                            @click="toVideoDetaik2(element.orderDetailsList[0].goodsId)">
+                                        <div class="item-title">{{ element.orderDetailsList[0].videoName }}</div>
+                                        <div class="icons-item" style="font-size: 13px;margin-bottom: 5px;">
+                                            <p>订单号:{{ element.id }}</p>
+                                            <p>订单状态
+                                            <p v-if="element.status === 0">待支付</p>
+                                            <p v-if="element.status === 1">已完成</p>
+                                            <p v-if="element.status === 2">售后中</p>
+                                            <p v-if="element.status === 3">已退款</p>
+                                            </p>
                                         </div>
-                                    </div>
-                                    <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
-                                        @click="delOR(element.id)">删除</button>
-                                    <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;"
-                                        @click="backbtns(element.id)" v-if="element.status === 2">退款</button>
+                                        <div class="icons-list">
+
+
+                                            <div class="icons-item">
+                                                <p>{{ dateString(element.createdAt) }}</p>
+                                            </div>
+                                        </div>
+                                        <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
+                                            @click="delOR(element.id)">删除</button>
+                                        <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;"
+                                            @click="backbtns(element.id)" v-if="element.status === 2">退款</button>
+                                    </el-card>
                                 </div>
+
                             </div>
                         </div>
                     </section>
@@ -418,4 +399,5 @@ const backbtns = (id) => {
     width: 178px;
     height: 178px;
     text-align: center;
-}</style>
+}
+</style>

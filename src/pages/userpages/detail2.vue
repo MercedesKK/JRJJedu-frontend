@@ -153,7 +153,7 @@ const save = () => {
             <div class="detail-wrapper">
                 <div class="left">
                     <div class="video-wrapper">
-                        <h1 id="name">
+                        <h1 class="title">
                             {{ detailData.name }}
                         </h1>
                         <div class="info">
@@ -176,16 +176,14 @@ const save = () => {
                             <div class="ram" v-show="!isPlay">请购买之后在观看该课程！</div>
                         </div>
                         <div class="contentt" style="margin: 15px 0;" v-html="detailData.graphicDetails">
-
                         </div>
                         <button class="sendBtn" id="commentBtn" style="cursor: pointer;margin-right: 10px;"
                             @click="save">收藏</button>
-<!--                        <button class="sendBtn" id="commentBtn" style="cursor: pointer;background-color: rgb(255, 140, 82);"-->
-<!--                            @click="toOr">购买课程</button>-->
-<!--                        <span style="margin-left: 20px;font-size: 22px;font-weight: 700;color: #ff8000;">￥{{-->
-<!--                            detailData.price ? detailData.price : 1 }}</span>-->
+                        <!--                        <button class="sendBtn" id="commentBtn" style="cursor: pointer;background-color: rgb(255, 140, 82);"-->
+                        <!--                            @click="toOr">购买课程</button>-->
+                        <!--                        <span style="margin-left: 20px;font-size: 22px;font-weight: 700;color: #ff8000;">￥{{-->
+                        <!--                            detailData.price ? detailData.price : 1 }}</span>-->
                     </div>
-
                     <div class="comment-wrapper">
                         <div class="comment-title">
                             评论
@@ -225,17 +223,13 @@ const save = () => {
                                             </p>
                                             <span class="little-comment-time">{{ dateString(child.createdAt) }}</span>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
                 <div class="right">
-
                     <div class="courselist">
                         <h3 style="font-weight: 700;">课程章节</h3>
                         <div class="demo-collapse" style="width: 100%;">
@@ -265,7 +259,6 @@ const save = () => {
                                     {{ element.name }}
                                 </div>
                                 <div class="up">
-                                    <span class="upIcon">UP</span>
                                     <p>{{ element.userName }}</p>
                                 </div>
                                 <div class="icons">
@@ -284,26 +277,22 @@ const save = () => {
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
-
-
-
-
-
-
         </section>
     </div>
 </template>
 
 <style scoped>
 @import url(../../assets/css/custom.css);
-
 @import url(../../assets/css/videoDetail.css);
+
+.title {
+    color: #222;
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: '华文中宋', 'STZhongsong', serif;
+}
 
 .btnitem {
     display: flex;
@@ -346,4 +335,5 @@ const save = () => {
 .active {
     background-color: #ff8000;
     color: #fff;
-}</style>
+}
+</style>

@@ -48,18 +48,6 @@ const reget = () => {
     getRank()
 }
 
-
-// const navBar = document.querySelector('#menu');
-// window.addEventListener('scroll', function () {
-//     console.log(scrollY, 'scrollTop')
-//     if (scrollY >= 65) {
-//         navBar.classList.add('sticky')
-//     } else {
-//         navBar.classList.remove('sticky')
-//     }
-// })
-
-
 const toVideoDetaik = (id) => {
     router.push(`/detail?id=${id}`)
 }
@@ -73,20 +61,55 @@ const selectTyped = (id) => {
 
 <template>
     <div class="container">
-        <section class="banxin">
-            <!--轮播图-->
-            <div class="banner">
-                <el-card height="500px" shadow="always">
-                    <el-carousel :interval="5000" arrow="hover" indicator-position="outside" height="500px">
-                        <el-carousel-item v-for="item in videoRank" :key="item">
-                            <img :src="item.imgUrl" alt="" @click="toVideoDetaik(item.id)"
-                                style="width: 100%; height: 100%;">
-                        </el-carousel-item>
-                    </el-carousel>
-                </el-card>
+        <section class="banxin" style="margin-top: 20px">
+            <!-- 链接区 -->
+            <div class="top">
+                <el-row :gutter="50">
+                    <el-col :span="8">
+                        <el-card height="450x" shadow="always">
+                            <div class="left">
+                                <el-button key="plain" type="" link>
+                                    <img src="../../../src/assets/images/douyin-removebg-preview.png"
+                                        style="width: 40px; margin-right: 5px;">
+                                    <a href="https://www.douyin.com/user/MS4wLjABAAAABRagcWJfw-FP_COPcH_pD72dY43Xw4-uDHnqXf7NauCvjipgx2_qnGqBZ_CSOI0B"
+                                        target="_blank">嘉靖学长-只讲干货</a>
+                                </el-button>
+                                <el-button key="plain" type="" link>
+                                    <img src="../../../src/assets/images/kuaishou.png"
+                                        style="width: 80px; margin-right: 5px;">
+                                    <a href="https://www.kuaishou.com/profile/3xcchs5z8gfdfpm" target="_blank">嘉靖学长-只讲干货</a>
+                                </el-button>
+                                <el-button key="plain" type="" link>
+                                    <img src="../../../src/assets/images/xiaohongshu.png"
+                                        style="width: 80px; margin-right: 5px;">
+                                    <a href="https://www.xiaohongshu.com/user/profile/6257d67300000000210268fa"
+                                        target="_blank">嘉靖学长-只讲干货</a>
+                                </el-button>
+                                <el-button key="plain" type="" link>
+                                    <img src="../../../src/assets/images/blbl.png" style="width: 80px; margin-right: 5px;">
+                                    <a href="https://space.bilibili.com/694007308?spm_id_from=333.337.search-card.all.click"
+                                        target="_blank">嘉靖学长-只讲干货</a>
+                                </el-button>
+                                <img src="/src/assets/logo/1.jpg" alt="" style="height: 250px;">
+                            </div>
+                        </el-card>
+                    </el-col>
+                    <el-col :span="16">
+                        <!--轮播图-->
+                        <el-card height="400px" shadow="always">
+                            <el-carousel :interval="5000" arrow="hover" indicator-position="outside" height="400px">
+                                <el-carousel-item v-for="item in videoRank" :key="item">
+                                    <img :src="item.imgUrl" alt="" @click="toVideoDetaik(item.id)"
+                                        style="width: 100%; height: 100%;">
+                                </el-carousel-item>
+                            </el-carousel>
+                        </el-card>
+                    </el-col>
+                </el-row>
             </div>
             <!-- 分类栏 -->
             <div class="main_top">
+
                 <div class="middle" style="display: flex;align-items: center;">
                     <div style="font-size: 20px;font-weight: 700;margin-right: 10px;">授课阶段：</div>
                     <ul class="middle_types">
@@ -144,9 +167,17 @@ const selectTyped = (id) => {
 @import url(../../assets/css/custom.css);
 @import url(../../assets/css/main.css);
 
-.banner {
+.top {
+    width: 100%;
+    height: 500px;
     margin-top: 10px;
-    border-radius: 10px;
-    width: 75%;
+}
+
+.top .left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 </style>

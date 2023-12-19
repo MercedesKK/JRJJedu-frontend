@@ -3,7 +3,7 @@
 }
 
 .detail-wrapper .left {
-    width: 1150px;
+    width: 75%;
 }
 
 .detail-wrapper .left .video-wrapper .info {
@@ -26,13 +26,16 @@
 
 
 .detail-wrapper .left .video-wrapper .videowindow {
-    width: 1150px;
-    height: 580px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .detail-wrapper .left .video-wrapper .videowindow video {
-    width: 100%;
-    height: 580px;
+    width: 85%;
+    height: 80%;
     object-fit: fill;
 }
 
@@ -268,7 +271,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-
 }
 
 .detail-wrapper .right .video-list .video-item .left-info .up {
