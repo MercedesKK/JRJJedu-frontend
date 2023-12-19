@@ -175,7 +175,7 @@ const toOr = () => {
                     setTimeout(() => {
                         router.push('/detail2?id=' + isId)
                         const div = document.createElement('divform');
-                        div.innerHTML = res.data;
+                        div.innerHTML = resp.data;
                         document.body.appendChild(div);
                         document.forms['punchout_form'].setAttribute('target', '_blank')
                         document.forms['punchout_form'].submit()
