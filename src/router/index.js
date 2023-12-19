@@ -171,20 +171,6 @@ const routes = [
         component: Mine,
       },
       {
-        path:"/search",
-        meta: {
-          title: "分类搜索",
-        },
-        component: Search,
-      },
-      {
-        path:"/searchpage",
-        meta: {
-          title: "搜索",
-        },
-        component: Searchpage,
-      },
-      {
         path:"/detail2",
         meta: {
           title: "已购买详情",

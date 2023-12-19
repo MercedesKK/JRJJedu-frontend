@@ -4,7 +4,7 @@ import { toast, dateString, messageBox } from "~/composables/util"
 import { getToken } from "~/composables/auth"
 import { Plus } from '@element-plus/icons-vue'
 import { useRouter, useRoute } from 'vue-router'
-import { getVideo, getFa, getUserData, updateUser, getVideoType, logOut,deleteFa,getOr,deleteOr,updateOr } from '~/api/manager'
+import { getVideo, getFa, getUserData, updateUser, getVideoType, logOut, deleteFa, getOr, deleteOr, updateOr } from '~/api/manager'
 import { useStore } from 'vuex'
 const router = useRouter()
 const store = useStore()
@@ -16,7 +16,7 @@ const tablist = ref([
     "资料",
     "收藏",
     "订单"
- 
+
 ])
 
 const selectTab = (u) => {
@@ -132,25 +132,25 @@ gettingUserData()
 
 const talksendlist = reactive({
     content: '',
-    recipientId:1692893558,
-    senderId:usersInfo.value.id
+    recipientId: 1692893558,
+    senderId: usersInfo.value.id
 })
 
-const getArticleTypeData = ()=>{
-    getChat({recipientId:1692893558}).then(res=>{
+const getArticleTypeData = () => {
+    getChat({ recipientId: 1692893558 }).then(res => {
         talkwindowlist.value = res.data.list
     })
 }
 // getArticleTypeData()
 
-const sends = ()=>{
-    createChat(talksendlist).then(res=>{
+const sends = () => {
+    createChat(talksendlist).then(res => {
         getArticleTypeData()
         talksendlist.content = ''
     })
 }
 
-const GetTile = (time) =>{
+const GetTile = (time) => {
     var now = new Date(time)
     var nian = now.getFullYear()
     var yue = (now.getMonth() + 1).toString().padStart(2, '0')
@@ -159,7 +159,7 @@ const GetTile = (time) =>{
     var fen = now.getMinutes().toString().padStart(2, '0')
     var miao = now.getSeconds().toString().padStart(2, '0')
     return `${nian}-${yue}-${ri} ${shi}:${fen}:${miao}`
-} 
+}
 
 
 
@@ -180,43 +180,43 @@ function handleoutlogin() {
     })
 }
 
-const deleteCol = (id)=>{
-    deleteFa(id).then(res=>{
+const deleteCol = (id) => {
+    deleteFa(id).then(res => {
         getCollect()
     })
 }
 
 const orders = ref([])
 
-const getort = ()=>{
-    getOr().then(res=>{
+const getort = () => {
+    getOr().then(res => {
         orders.value = res.data.list
     })
 }
 getort()
 
-const delOR = (id)=>{
-    deleteOr(id).then(res =>{
+const delOR = (id) => {
+    deleteOr(id).then(res => {
         getort()
     })
 }
 
 
-const toVideoDetaik =  (id)=>{
+const toVideoDetaik = (id) => {
     router.push(`/detail?id=${id}`)
 }
 
 
-const toVideoDetaik2 =  (id)=>{
+const toVideoDetaik2 = (id) => {
     router.push(`/detail2?id=${id}`)
 }
 
-const backbtns = (id)=>{
-    updateOr({id:id,status:3}).then(res=>{
+const backbtns = (id) => {
+    updateOr({ id: id, status: 3 }).then(res => {
         if (res.code !== 200) {
-            toast(res.message,'error')
+            toast(res.message, 'error')
             return;
-        }else {
+        } else {
             toast('退款成功！')
             getort()
         }
@@ -250,7 +250,7 @@ const backbtns = (id)=>{
                 </ul>
 
                 <div class="content">
-                   
+
 
                     <section v-show="tabIndex == 0" class="active">
                         <div class="my-all-video">
@@ -270,8 +270,8 @@ const backbtns = (id)=>{
                                     <el-form :model="form" ref="refForm" label-width="80px">
 
                                         <el-form-item prop="userName" label="用户名">
-<!--                                            <el-input v-model="form.userName" placeholder="请输入用户名" />-->
-                                          {{ form.userName }}
+                                            <!--                                            <el-input v-model="form.userName" placeholder="请输入用户名" />-->
+                                            {{ form.userName }}
                                         </el-form-item>
 
                                         <el-form-item prop="password" label="密码">
@@ -282,9 +282,9 @@ const backbtns = (id)=>{
                                             <el-input v-model="form.email" placeholder="请输入邮箱" />
                                         </el-form-item>
 
-<!--                                        <el-form-item prop="phone" label="手机号">-->
-<!--                                            <el-input v-model="form.phone" placeholder="请输入手机号" />-->
-<!--                                        </el-form-item>-->
+                                        <!--                                        <el-form-item prop="phone" label="手机号">-->
+                                        <!--                                            <el-input v-model="form.phone" placeholder="请输入手机号" />-->
+                                        <!--                                        </el-form-item>-->
 
                                         <el-form-item prop="avatar" label="头像">
                                             <el-upload class="avatar-uploader" :action="$elyasApi + '/file/uploadSingle'"
@@ -319,19 +319,20 @@ const backbtns = (id)=>{
                         <div class="my-video-list" id="pageSave">
 
                             <div class="my-video-list" id="mySaveAll">
-                            <div class="my-video-item" v-for="(element, index) in collects" :key="index" >
-                                <img :src="element.imgUrl" alt="" @click="toVideoDetaik(element.momentId)">
-                                <div class="item-title">{{ element.courseName }}</div>
-                                <div class="icons-list">
-                                    
+                                <div class="my-video-item" v-for="(element, index) in collects" :key="index">
+                                    <img :src="element.imgUrl" alt="" @click="toVideoDetaik(element.momentId)">
+                                    <div class="item-title">{{ element.courseName }}</div>
+                                    <div class="icons-list">
 
-                                    <div class="icons-item">
-                                        <p>{{ dateString(element.createdAt) }}</p>
+
+                                        <div class="icons-item">
+                                            <p>{{ dateString(element.createdAt) }}</p>
+                                        </div>
                                     </div>
+                                    <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
+                                        @click="deleteCol(element.id)">删除</button>
                                 </div>
-                                <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;" @click="deleteCol(element.id)">删除</button>
                             </div>
-                        </div>
                         </div>
                     </section>
 
@@ -340,30 +341,36 @@ const backbtns = (id)=>{
                         <div class="my-video-list" id="pageSave">
 
                             <div class="my-video-list" id="mySaveAll">
-                            <div class="my-video-item" v-for="(element, index) in orders" :key="index" >
-                                <img v-if="element.status === 0 || element.status === 3" :src="element.orderDetailsList[0].videoImgUrl" alt="" @click="toVideoDetaik(element.orderDetailsList[0].goodsId)">
-                                <img v-if="element.status === 1 || element.status === 2" :src="element.orderDetailsList[0].videoImgUrl" alt="" @click="toVideoDetaik2(element.orderDetailsList[0].goodsId)">
-                                <div class="item-title">{{ element.orderDetailsList[0].videoName }}</div>
-                                <div class="icons-item" style="font-size: 13px;margin-bottom: 5px;">
-                                    <p>订单号:{{element.id}}</p>
-                                    <p>订单状态
+                                <div class="my-video-item" v-for="(element, index) in orders" :key="index">
+                                    <img v-if="element.status === 0 || element.status === 3"
+                                        :src="element.orderDetailsList[0].videoImgUrl" alt=""
+                                        @click="toVideoDetaik(element.orderDetailsList[0].goodsId)">
+                                    <img v-if="element.status === 1 || element.status === 2"
+                                        :src="element.orderDetailsList[0].videoImgUrl" alt=""
+                                        @click="toVideoDetaik2(element.orderDetailsList[0].goodsId)">
+                                    <div class="item-title">{{ element.orderDetailsList[0].videoName }}</div>
+                                    <div class="icons-item" style="font-size: 13px;margin-bottom: 5px;">
+                                        <p>订单号:{{ element.id }}</p>
+                                        <p>订单状态
                                         <p v-if="element.status === 0">待支付</p>
                                         <p v-if="element.status === 1">已完成</p>
                                         <p v-if="element.status === 2">售后中</p>
                                         <p v-if="element.status === 3">已退款</p>
-                                    </p>
-                                </div>
-                                <div class="icons-list">
-                                   
-
-                                    <div class="icons-item">
-                                        <p>{{ dateString(element.createdAt) }}</p>
+                                        </p>
                                     </div>
+                                    <div class="icons-list">
+
+
+                                        <div class="icons-item">
+                                            <p>{{ dateString(element.createdAt) }}</p>
+                                        </div>
+                                    </div>
+                                    <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
+                                        @click="delOR(element.id)">删除</button>
+                                    <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;"
+                                        @click="backbtns(element.id)" v-if="element.status === 2">退款</button>
                                 </div>
-                                <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;" @click="delOR(element.id)">删除</button>
-                                <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;" @click="backbtns(element.id)" v-if="element.status === 2">退款</button>
                             </div>
-                        </div>
                         </div>
                     </section>
 
@@ -374,7 +381,8 @@ const backbtns = (id)=>{
     </section>
 </template>
 
-<style scoped>@import url(../../assets/css/custom.css);
+<style scoped>
+@import url(../../assets/css/custom.css);
 @import url(../../assets/css/user.css);
 
 .el-form-item {
@@ -410,5 +418,4 @@ const backbtns = (id)=>{
     width: 178px;
     height: 178px;
     text-align: center;
-}
-</style>
+}</style>
