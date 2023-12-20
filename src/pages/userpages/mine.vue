@@ -347,7 +347,7 @@ const backbtns = (id) => {
                                         <button style="background-color: #ff5000;color: #fff;padding: 4px 12px;"
                                             @click="delOR(element.id)">删除</button>
                                         <button style="background-color: #ff9100;color: #fff;padding: 4px 12px;"
-                                            @click="backbtns(element.id)" v-if="element.status === 2">退款</button>
+                                            @click="backbtns(element.id)" v-if="element.status === 1">退款</button>
                                     </el-card>
                                 </div>
 

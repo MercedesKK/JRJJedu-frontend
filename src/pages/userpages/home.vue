@@ -68,6 +68,7 @@ const selectTyped = (id) => {
                     <el-col :span="8">
                         <el-card height="450x" shadow="always">
                             <div class="left">
+                                <img src="/src/assets/logo/1.jpg" alt="" style="height: 250px;">
                                 <el-button key="plain" type="" link>
                                     <img src="../../../src/assets/images/douyin-removebg-preview.png"
                                         style="width: 40px; margin-right: 5px;">
@@ -90,7 +91,7 @@ const selectTyped = (id) => {
                                     <a href="https://space.bilibili.com/694007308?spm_id_from=333.337.search-card.all.click"
                                         target="_blank">嘉靖学长-只讲干货</a>
                                 </el-button>
-                                <img src="/src/assets/logo/1.jpg" alt="" style="height: 250px;">
+
                             </div>
                         </el-card>
                     </el-col>
